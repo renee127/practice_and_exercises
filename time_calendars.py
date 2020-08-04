@@ -1,6 +1,10 @@
-#
-# Example file for formatting time and date output
-#
+# how to measure the time elapsed to execute 
+import time_
+start_time = time.time()
+# code goes here
+#end_time = time.time()
+total_time = end_time - start_time
+print('Total time required to execute code = ' + total_time)
 
 from datetime import datetime
 
