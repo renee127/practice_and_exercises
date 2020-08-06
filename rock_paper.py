@@ -12,7 +12,7 @@ player_choice = input('Rock, Paper, or Scissors?  ')
 
 # compare choices and determine win lose tie
 if player_choice == computer_choice:
-    print('Tie')
+    print('{} = {}: tie.'.format(computer_choice, player_choice))
 elif player_choice == 'Rock':
     if computer_choice == 'Paper':
         print('Paper covers Rock: you lose.')
@@ -29,4 +29,5 @@ elif player_choice == 'Paper':
     elif computer_choice == 'Rock':
         print('Paper covers Rock: you win.')
 else:
-    print('Please choose Rock, Paper, or Scissors')
+    # reprompt for choice if entry invalid
+    print('Please choose Rock, Paper, or Scissors:  ')
