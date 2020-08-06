@@ -5,7 +5,6 @@ from random import randint
 # get random choice to represent computer's play
 choices = ['Rock', 'Paper', 'Scissors']
 computer_choice = choices[randint(0,2)]
-print(computer_choice)
 
 # get user choice
 player_choice = input('Rock, Paper, or Scissors?  ')
