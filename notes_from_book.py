@@ -58,3 +58,27 @@ threes = [num * 3 for num in range(1, 11)]
 print(threes)
 odds = [num for num in range(1, 20, 2)]
 print(odds)
+print('looping through a slicing')
+names = ['a', 'c', 'z', 'd', 'p']
+for name in names[1:3]:
+    print(name.title())
+print('print a reversed tuple can be tricky')
+x = (1, 3, 5, 7, 8)
+print(reversed(x))
+print(list(reversed(x))) # works with list before it
+print('can use slice to loop through part of a list')
+for item in x[2:4]: print(item)
+print('to copy just set new_list = old_list[:], wont work w/o [:]')
+copy_of_x = x[ : ]
+print(copy_of_x)
+print('a tuple is an immutable list, indicate with (,) and must inclue ,')
+my_tuple = (1, 7, 9, 4)
+print(my_tuple)
+print('with tuples can\'t replace individual elements, must replace all')
+my_tuple = (9, 9, 3, 4)
+print(my_tuple)
+print('to quick find the 79 char limit')
+print('0'*79)
+
+
+
