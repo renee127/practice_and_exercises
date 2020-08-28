@@ -1,50 +1,58 @@
-""" Calculate the mean, median, & mode.
+"""Calculate quartiles without numpy.
+
+    Input:  N (number of scores)
+            scores(list of scores)
+    Output: print 1st, 2nd, 3rd quartile.
 """
-import collections
 
 N = int(input())
 scores = list(map(int, input().rstrip().split()))
-
-print("{0:0.1f}".format(sum(scores)/N)) # mean
 sorted_scores = sorted(scores)
 
-if N % 2 == 1: 
-    median = scores[(N//2)]
+def find_median(scores, N):
+    if N % 2 == 1: 
+        median = scores[(N//2)]
+    else:
+        median = (
+            (scores[N//2 - 1] + scores[N//2]) / 2 ) 
+    print(int(median) )
+
+half_N = int(N//2)  
+lower_scores = sorted_scores[0:half_N]
+if N%2 == 0:
+    upper_scores = sorted_scores[half_N:]
 else:
-    median = (
-        (sorted_scores[N//2 - 1] + sorted_scores[N//2]) / 2 )  
-print("{0:0.1f}".format(median)) # median
+    upper_scores = sorted_scores[half_N + 1:]
 
-# Use counter to count occurences and put in dict.
-score_dict = dict((collections.Counter(sorted_scores)))
-max_value = max(list(score_dict.values()))
+find_median(lower_scores, half_N)  
+find_median(sorted_scores, N)
+find_median(upper_scores, half_N)
 
-# Find the key corresponding to the max_value value.
-mode = [k for k, v in score_dict.items() if v == max_value]
-print(min(mode)) # mode
 
 # Test case 1
 
 # 7
 # 234 -432 0 222 493 -90 2920
+# Ans: -90, 222, 224
 
 # Test Case 2
-# 8
-# 20 -20 20 -20 20 -20 20 -20
+# 10
+# 3 7 8 5 12 14 21 15 18 14
+# Ans: 7, 13, 15
+
 
 # Test Case 3
-# 10
-# -200 -20 20 -20 20 -20 20 -20 77 -90
+# 9
+# 3 7 8 5 12 14 21 13 18
+# Ans: 6, 12, 16
 
-# But if using numpy and stats - easy
-# import numpy as np
-# from scipy import stats
+# Test Case 4
+# 12
+# 4 17 7 14 18 12 3 16 10 4 4 12
+# Ans: 4, 11, 15
 
-# size = int(input())
-# numbers = list(map(int, input().split()))
-# print(np.mean(numbers))
-# print(np.median(numbers))
-# print(int(stats.mode(numbers)[0]))
+
+
 
 
 
